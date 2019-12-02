@@ -16,7 +16,7 @@ A custom solution is written in Python which reads the data generated from CA AR
 #### Prerequisites
 1. Python Intepreter to be installed on the machine where this utility is planned to be run. Python can be downloaded from https://www.python.org/downloads/
 2. Download the utility program [transform.py] 
-3. Availability of input data [alm.xlsx] in the same location where the utility program is made available.
+3. Availability of input data [ard.xlsx] in the same location where the utility program is made available.
 
 #### Execution
 1. Run the utility program in the following way 
