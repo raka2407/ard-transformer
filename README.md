@@ -21,7 +21,7 @@ For the easy of usage, custom solution is wrapped as a standard python package u
 #### Installation
 1. Run the following command to install the package
     
-    pip install ard-transformer
+        pip install ard-transformer
 
 #### Execution
 1. Utility can be run using the command below
@@ -37,7 +37,7 @@ For the easy of usage, custom solution is wrapped as a standard python package u
     
         transformer [-h] [-v] [-p PATH] [-i INPUT] [-o OUTPUT]
    
-        `Arguments`
+        Arguments:
 
             -p PATH     Path of input and output files
             -i INPUT    Name of ARD file
