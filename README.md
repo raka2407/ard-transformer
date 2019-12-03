@@ -33,15 +33,15 @@ For the easy of usage, custom solution is wrapped as a standard python package u
        transformer -h
        transformer --help
 
-**Usage** 
+3. Usage 
     
-    transformer [-h] [-v] [-p PATH] [-i INPUT] [-o OUTPUT]
+        transformer [-h] [-v] [-p PATH] [-i INPUT] [-o OUTPUT]
    
-`Arguments`
+        `Arguments`
 
-    -p PATH     Path of input and output files
-    -i INPUT    Name of ARD file
-    -o OUTPUT   Name of Octane file
+            -p PATH     Path of input and output files
+            -i INPUT    Name of ARD file
+            -o OUTPUT   Name of Octane file
           
 3. Below is a sample example
 
