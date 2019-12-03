@@ -6,7 +6,9 @@ This custom solution bridges the gap between two widely known tools in the marke
 
 Currently, CA ARD provides an integration capability with HP QC/ALM and automatically uploads the test cases generated from ARD to QC/ALM. However, CA ARD and does not integrate with the advanced version of QC/ALM, which is MicroFocus ALM Octane. 
 
-A custom solution is written in Python which reads the data generated from CA ARD [.xlsx], transforms and writes the data [.xlsx] to Octane undestandable format. The transformed data in [.xlsx] is further used for import into ALM Octane. 
+A custom solution is written in Python which reads the data generated from CA ARD [.xlsx], transforms and writes the data [.xlsx] to Octane undestandable format. The transformed data in [.xlsx] is further used for import into ALM Octane.
+
+For the easy of usage, custom solution is wrapped as a standard python package using PYPI and made available as **ard-transformer**   
 
 ![Transformer](https://upload.wikimedia.org/wikipedia/commons/6/60/ARD-Octane.jpg)
 
@@ -15,17 +17,34 @@ A custom solution is written in Python which reads the data generated from CA AR
 
 #### Prerequisites
 1. Python Intepreter to be installed on the machine where this utility is planned to be run. Python can be downloaded from https://www.python.org/downloads/
-2. Download the utility program [transform.py] 
-3. Availability of input data [ard.xlsx] in the same location where the utility program is made available.
+
+#### Installation
+1. Run the following command to install the package
+    
+    pip install ard-transformer
 
 #### Execution
-1. Run the utility program in the following way 
+1. Utility can be run using the command below
 
-       python transform.py
+       transformer
 
-2. Below are logs generated
+2. Use one of the command below to list the possible command line arguments
 
-       Transformation started...please wait
-       Transformation Completed
-       
-3. A new file [octane.xlsx] is generated in the same location of utility program after the transformation is complete. 
+       transformer -h
+       transformer --help
+
+**Usage** 
+    
+    transformer [-h] [-v] [-p PATH] [-i INPUT] [-o OUTPUT]
+   
+`Arguments`
+
+    -p PATH     Path of input and output files
+    -i INPUT    Name of ARD file
+    -o OUTPUT   Name of Octane file
+          
+3. Below is a sample example
+
+        transformer -p C:/work -i ard.xlsx -o octane.xlsx
+    
+ 
