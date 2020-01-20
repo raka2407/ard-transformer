@@ -16,7 +16,7 @@ For the easy of usage, custom solution is wrapped as a standard python package u
 ## Usage
 
 #### Prerequisites
-1. Python Intepreter to be installed on the machine where this utility is planned to be run. Python can be downloaded from https://www.python.org/downloads/
+1. Python Interpreter to be installed on the machine where this utility is planned to be run. Python can be downloaded from https://www.python.org/downloads/
 
 #### Installation
 1. Run the following command to install the package
