@@ -10,7 +10,7 @@ A custom solution is written in Python which reads the data generated from CA AR
 
 For the easy of usage, custom solution is wrapped as a standard python package using PYPI and made available as **ard-transformer**   
 
-![Transformer](https://upload.wikimedia.org/wikipedia/commons/6/60/ARD-Octane.jpg)
+![Transformer](https://commons.wikimedia.org/wiki/File:Octane-transformer.jpg)
 
 
 ## Usage
