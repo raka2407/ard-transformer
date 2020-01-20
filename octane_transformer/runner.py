@@ -23,8 +23,10 @@
 # SOFTWARE.
 
 import argparse
+import re
 from pyfiglet import Figlet
 from .transformer import transform_ard_to_octane
+from .transformer import transform_alm_to_octane
 from .version import __version__
 
 
@@ -46,15 +48,21 @@ def parse_options():
     )
 
     general.add_argument(
+        '-s',
+        dest='source',
+        help="Source System of input file (ARD or ALM)"
+    )
+
+    general.add_argument(
         '-i',
         dest='input',
-        help="Name of ARD file"
+        help="Name of Input file"
     )
 
     general.add_argument(
         '-o',
         dest='output',
-        help="Name of Octane file"
+        help="Name of Output file"
     )
 
     args = parser.parse_args()
@@ -63,11 +71,15 @@ def parse_options():
 
 def main():
     f = Figlet(font='slant')
-    print('\n','******************************************************************''\n', f.renderText('ARD Transformer'), '******************************************************************''\n')
+    print('\n','******************************************************************''\n', f.renderText('         D N B            Transformer'), '******************************************************************''\n')
     args = parse_options()
 
     if args.version:
         print(__version__)
         exit(0)
 
-    transform_ard_to_octane(args)
+    if re.search(args.source, 'ARD', re.IGNORECASE):
+        transform_ard_to_octane(args)
+
+    if re.search(args.source, 'ALM', re.IGNORECASE):
+        transform_alm_to_octane(args)

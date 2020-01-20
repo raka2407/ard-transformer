@@ -152,13 +152,54 @@ def transform_ard_to_octane(options):
                 # Row with type as 'test_manual'
                 unique_id = add_tc_row_with_type_as_test_manual(octane_tc_df, row['Test Name'], row['Description'])
 
-                #if row['Test Suite'] not in octane_ts_df.values:
                 if row['Test Suite'] not in octane_ts_df.values:
                     add_ts_row_with_type_as_test_suite(octane_ts_df, row['Test Suite'])
                 add_ts_row_with_type_as_test_manual(octane_ts_df, unique_id)
 
             # Row with type as 'step' and step_type as 'Simple'
             add_tc_row_with_type_as_step(octane_tc_df, "Simple", row['Step Description'])
+
+            # Row with type as 'step' and step_type as 'Validation'
+            add_tc_row_with_type_as_step(octane_tc_df, "Validation", row['Expected Result'])
+
+        write_df_to_excel(target_file, octane_tc_df, octane_ts_df)
+
+
+def transform_alm_to_octane(options):
+    if options.path is None and options.input is None and options.output is None:
+        exit("Use -h for Help")
+    if options.path is None:
+        exit("Path of input and output files is missing, can be passed using -p")
+    elif options.input is None:
+        exit("ALM file name is missing, can be passed using -i")
+    elif options.output is None:
+        exit("Octane file name is missing, can be passed using -o")
+    else:
+        path = os.path.abspath(os.path.expanduser(options.path))
+        source_file_name = options.input
+        target_file_name = options.output
+        source_file = os.path.join(path, source_file_name)
+        target_file = os.path.join(path, target_file_name)
+        octane_tc_df = pd.DataFrame(
+            columns=['unique_id', 'type', 'name', 'step_type', 'description', 'step_description', 'test_type',
+                     'product_areas', 'covered_content', 'designer', 'estimated_duration', 'owner'])
+        octane_ts_df = pd.DataFrame(
+            columns=['unique_id', 'type', 'name', 'test_id', 'product_areas', 'covered_content', 'designer',
+                     'description', 'owner', 'user_tags', 'aaa_udf'])
+
+        print("Transformation started.....please wait")
+        alm_df = pd.read_excel(source_file)
+        alm_extracted_df = alm_df[['Test Name', 'Description', 'Action', 'Expected Result']]
+
+        # Iterate through ARD data frame
+        for index, row in alm_extracted_df.iterrows():
+            # Find if row['Test Name'] exists in DF; ignore if exists; add to DF with incremented index
+            if row['Test Name'] not in octane_tc_df.values:
+                # Row with type as 'test_manual'
+                unique_id = add_tc_row_with_type_as_test_manual(octane_tc_df, row['Test Name'], row['Description'])
+
+            # Row with type as 'step' and step_type as 'Simple'
+            add_tc_row_with_type_as_step(octane_tc_df, "Simple", row['Action'])
 
             # Row with type as 'step' and step_type as 'Validation'
             add_tc_row_with_type_as_step(octane_tc_df, "Validation", row['Expected Result'])

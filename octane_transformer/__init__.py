@@ -24,10 +24,11 @@
 
 
 from .transformer import transform_ard_to_octane
+from .transformer import transform_alm_to_octane
 
 
-class ARDTransformer:
+class Transformer:
     """
-    ardTransformer is a custom utility transforming the data generated from CA ARD to ALM Octane format.
+    Octane Transformer is a custom utility transforming the data generated from tools like CA ARD or HP ALM to ALM Octane format.
 
     """

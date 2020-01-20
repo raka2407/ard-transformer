@@ -21,22 +21,22 @@ with open(join(CURDIR, 'requirements.txt')) as f:
     REQUIREMENTS = f.read().splitlines()
 
 setup(
-    name='ard-transformer',
+    name='octane-transformer',
     version=VERSION,
-    description="Custom Integration Bridge between CA ARD and ALM Octane",
+    description="Custom Integration Bridge between tools like CA ARD, HP QC/ALM and ALM Octane",
     author="Rakesh Ummadisetty",
     author_email='u.rakesh@live.com',
-    url='https://github.com/raka2407/ard-transformer.git',
+    url='https://github.com/raka2407/octane-transformer.git',
     license          = 'MIT',
-    keywords         = 'ard octane',
+    keywords         = 'ard alm qc octane',
     platforms        = 'any',
     install_requires = REQUIREMENTS,  
     classifiers=CLASSIFIERS,
-    packages=['ard_transformer'],
+    packages=['octane_transformer'],
     include_package_data=True,
     entry_points={
         'console_scripts': [
-            'transformer=ard_transformer.runner:main',
+            'transformer=octane_transformer.runner:main',
         ]
     }
 )
