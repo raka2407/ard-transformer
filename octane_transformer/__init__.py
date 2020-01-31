@@ -24,7 +24,8 @@
 
 
 from .transformer import transform_ard_to_octane
-from .transformer import transform_alm_to_octane
+from .transformer import transform_alm_tc_to_octane
+from .transformer import transform_alm_defects_to_octane
 
 
 class Transformer:

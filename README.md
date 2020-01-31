@@ -35,18 +35,20 @@ For the easy of usage, custom solution is wrapped as a standard python package u
 
 3. Usage 
     
-        transformer [-h] [-v] [-p PATH] [-s SOURCE] [-i INPUT] [-o OUTPUT]
+        transformer [-h] [-v] [-p PATH] [-s SOURCE] [-m MODULE] [-i INPUT] [-o OUTPUT]
    
         Arguments:
 
             -p PATH     Path of input and output files
-            -s SOURCE   Source Syatem of input file (ARD or ALM)
+            -s SOURCE   Source System of input file (ARD or ALM)
+            -m MODULE   Source Module of input file (Tests or Defects)
             -i INPUT    Name of Input file
             -o OUTPUT   Name of Output file
           
 3. Below are example commands
 
         transformer -p C:/work -s ard -i ard.xlsx -o octane.xlsx
-        transformer -p C:/work -s alm -i alm.xlsx -o octane.xlsx
+        transformer -p C:/work -s alm -m tests -i alm.xlsx -o octane.xlsx
+        transformer -p C:/work -s alm -m defects -i alm.xlsx -o octane.xlsx
     
  

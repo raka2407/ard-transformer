@@ -26,7 +26,8 @@ import argparse
 import re
 from pyfiglet import Figlet
 from .transformer import transform_ard_to_octane
-from .transformer import transform_alm_to_octane
+from .transformer import transform_alm_tc_to_octane
+from .transformer import transform_alm_defects_to_octane
 from .version import __version__
 
 
@@ -54,6 +55,12 @@ def parse_options():
     )
 
     general.add_argument(
+        '-m',
+        dest='module',
+        help="Source Module (tests or defects)"
+    )
+
+    general.add_argument(
         '-i',
         dest='input',
         help="Name of Input file"
@@ -78,8 +85,24 @@ def main():
         print(__version__)
         exit(0)
 
+    if args.path is None and args.input is None and args.output is None:
+        exit("Use -h for Help")
+    if args.path is None:
+        exit("Path of input and output files is missing, can be passed using -p")
+    if args.source is None:
+        exit("Source system is missing, can be passed using -s")
+    if args.module is None:
+        exit("Source module is missing, can be passed using -m")
+    if args.input is None:
+        exit("ARD file name is missing, can be passed using -i")
+    if args.output is None:
+        exit("Octane file name is missing, can be passed using -o")
+
     if re.search(args.source, 'ARD', re.IGNORECASE):
         transform_ard_to_octane(args)
 
-    if re.search(args.source, 'ALM', re.IGNORECASE):
-        transform_alm_to_octane(args)
+    if re.search(args.source, 'ALM', re.IGNORECASE) and re.search(args.module, 'Tests', re.IGNORECASE):
+        transform_alm_tc_to_octane(args)
+
+    if re.search(args.source, 'ALM', re.IGNORECASE) and re.search(args.module, 'Defects', re.IGNORECASE):
+        transform_alm_defects_to_octane(args)
