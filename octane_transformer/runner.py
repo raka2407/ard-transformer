@@ -91,7 +91,7 @@ def main():
         exit("Path of input and output files is missing, can be passed using -p")
     if args.source is None:
         exit("Source system is missing, can be passed using -s")
-    if args.module is None:
+    if args.module is None and re.search(args.source, 'ALM', re.IGNORECASE):
         exit("Source module is missing, can be passed using -m")
     if args.input is None:
         exit("ARD file name is missing, can be passed using -i")
