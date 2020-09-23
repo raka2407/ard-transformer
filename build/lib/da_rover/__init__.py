@@ -22,4 +22,14 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-__version__ = '1.6'
+
+from .rover import transform_ard_to_octane
+from .rover import transform_alm_tc_to_octane
+from .rover import transform_alm_defects_to_octane
+
+
+class Rover:
+    """
+    Octane Transformer, also called as RoVer is a custom utility transforming the data generated from tools like CA ARD or HP ALM to ALM Octane format.
+
+    """

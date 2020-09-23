@@ -25,9 +25,9 @@
 import argparse
 import re
 from pyfiglet import Figlet
-from .transformer import transform_ard_to_octane
-from .transformer import transform_alm_tc_to_octane
-from .transformer import transform_alm_defects_to_octane
+from .rover import transform_ard_to_octane
+from .rover import transform_alm_tc_to_octane
+from .rover import transform_alm_defects_to_octane
 from .version import __version__
 
 
@@ -39,7 +39,7 @@ def parse_options():
         '-v',
         action='store_true',
         dest='version',
-        help='Display transformer version'
+        help='Display rover version'
     )
 
     general.add_argument(
@@ -78,7 +78,7 @@ def parse_options():
 
 def main():
     f = Figlet(font='slant')
-    print('\n','******************************************************************''\n', f.renderText('         D N B            Transformer'), '******************************************************************''\n')
+    print('\n','******************************************************************''\n', f.renderText('            DA                         ROVER'), '******************************************************************''\n')
     args = parse_options()
 
     if args.version:

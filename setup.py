@@ -21,7 +21,7 @@ with open(join(CURDIR, 'requirements.txt')) as f:
     REQUIREMENTS = f.read().splitlines()
 
 setup(
-    name='octane-transformer',
+    name='da-rover',
     version=VERSION,
     description="Custom Integration Bridge between tools like CA ARD, HP QC/ALM and ALM Octane",
     author="Rakesh Ummadisetty",
@@ -32,11 +32,11 @@ setup(
     platforms        = 'any',
     install_requires = REQUIREMENTS,  
     classifiers=CLASSIFIERS,
-    packages=['octane_transformer'],
+    packages=['da_rover'],
     include_package_data=True,
     entry_points={
         'console_scripts': [
-            'transformer=octane_transformer.runner:main',
+            'rover=da_rover.runner:main',
         ]
     }
 )

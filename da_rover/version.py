@@ -22,14 +22,4 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-
-from .transformer import transform_ard_to_octane
-from .transformer import transform_alm_tc_to_octane
-from .transformer import transform_alm_defects_to_octane
-
-
-class Transformer:
-    """
-    Octane Transformer is a custom utility transforming the data generated from tools like CA ARD or HP ALM to ALM Octane format.
-
-    """
+__version__ = '1.6'

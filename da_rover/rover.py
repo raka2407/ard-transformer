@@ -242,7 +242,7 @@ def transform_alm_tc_to_octane(options):
         # Row with type as 'step' and step_type as 'Validation'
         add_tc_row_with_type_as_step(octane_tc_df, "Validation", row['Expected Result'])
 
-    write_df_to_excel(target_file, octane_tc_df, octane_ts_df)
+    write_df_to_excel(target_file, octane_tc_df, octane_ts_df, None)
 
 
 def transform_alm_defects_to_octane(options):
